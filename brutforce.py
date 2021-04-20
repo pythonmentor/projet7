@@ -1,6 +1,7 @@
 import csv
 from collections import defaultdict
 from itertools import product
+import timeit
 
 MAX_COST = 500
 
@@ -46,4 +47,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    print(timeit.timeit(main, number=10))
