@@ -31,12 +31,11 @@ def main():
     """Main entry point."""
     opt = {'actions': None, 'cost': 0, 'profit': 0}
     for actions, prices, profits in combine(get_data('data/dataset-test.csv')):
-        cost = sum(prices)
-        profit = sum(profits)
-        if cost <= MAX_COST and profit > opt['profit']:
-            opt['actions'] = actions
-            opt['cost'] = cost
-            opt['profit'] = profit
+        if (cost := sum(prices)) <= MAX_COST:
+            if (profit := sum(profits)) > opt['profit']:
+                opt['actions'] = actions
+                opt['cost'] = cost
+                opt['profit'] = profit
 
     print(
         "La combinaison idéale est:\n"
